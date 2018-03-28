@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "statesman/viz"
+require "statesman_viz"
+require "statesman"
 
 class OrderStateMachine
   include Statesman::Machine
@@ -36,17 +37,19 @@ class OrderStateMachine
   end
 end
 
-state_graph = GraphViz.new( :G, :type => :digraph )
+StatesmanViz.generate(OrderStateMachine)
 
-node_map = {}
-OrderStateMachine.states.each do |state|
-  node_map[state] = state_graph.add_nodes(state)
-end
+# state_graph = GraphViz.new( :G, :type => :digraph )
 
-OrderStateMachine.successors.each do |from_state, to_states|
-  to_states.each do |to_state|
-    state_graph.add_edges(node_map[from_state], node_map[to_state])
-  end
-end
+# node_map = {}
+# OrderStateMachine.states.each do |state|
+#   node_map[state] = state_graph.add_nodes(state)
+# end
 
-state_graph.output( :png => "orderstatemachine.png" )
+# OrderStateMachine.successors.each do |from_state, to_states|
+#   to_states.each do |to_state|
+#     state_graph.add_edges(node_map[from_state], node_map[to_state])
+#   end
+# end
+
+# state_graph.output( :png => "orderstatemachine.png" )
