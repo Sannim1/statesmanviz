@@ -1,4 +1,4 @@
-# StatesmanViz
+# StatesmanViz [![Build Status](https://travis-ci.org/Sannim1/statesmanviz.svg?branch=master)](https://travis-ci.org/Sannim1/statesmanviz)
 
 A tool for visualizing state machines defined using [Statesman](https://github.com/gocardless/statesman)
 
