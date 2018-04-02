@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "statesman/viz"
+require "statesman_viz"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -11,4 +11,6 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.before { FileUtils.remove_entry_secure("/tmp/StatesmanViz", force = true) }
 end
