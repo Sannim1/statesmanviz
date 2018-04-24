@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Sanni Abdulmusawwir"]
   spec.email         = ["sanniabdulmusawwir@gmail.com"]
 
-  spec.summary       = "statesman viz"
-  spec.description   = "statesman_viz"
+  spec.summary       = "A tool for visualizing Statesman statemachines"
+  spec.description   = "A tool for visualizing Statesman statemachines"
   # spec.homepage      = "TODO: Put your gem's website or public repo URL here."
   spec.license       = "MIT"
 
