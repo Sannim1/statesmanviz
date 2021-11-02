@@ -35,6 +35,8 @@ module StatesmanViz
       output_file_name = File.join(output_file_path, "#{state_machine_class.to_s}.png")
 
       state_graph.output(:png => output_file_name)
+
+      output_file_name
     end
   end
 end

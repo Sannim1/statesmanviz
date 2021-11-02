@@ -13,6 +13,7 @@ RSpec.describe StatesmanViz do
         error: %i[fetching]
       }
     end
+    let(:expected_output_path) { "/tmp/StatesmanViz/#{dummy_state_machine.to_s}.png" }
 
     subject(:generate) { StatesmanViz.generate(dummy_state_machine) }
 
@@ -20,9 +21,15 @@ RSpec.describe StatesmanViz do
       expect(dummy_state_machine).to receive(:states).and_return(states)
       expect(dummy_state_machine).to receive(:successors).and_return(transitions)
 
-      expect { generate }.to change {
-        File.exists?("/tmp/StatesmanViz/#{dummy_state_machine.to_s}.png")
-      }.from(false).to(true)
+      expect(generate).to eq(expected_output_path)
+    end
+
+    it "persists the generated state machine diagram" do
+      expect(dummy_state_machine).to receive(:states).and_return(states)
+      expect(dummy_state_machine).to receive(:successors).and_return(transitions)
+
+      expect { generate }.
+        to change { File.exists?(expected_output_path) }.from(false).to(true)
     end
 
     context "for an invalid state machine class" do
