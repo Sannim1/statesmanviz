@@ -59,10 +59,16 @@ end
 - Invoke `StatesmanViz` to generate the state machine diagram.
 
 ```ruby
+# Configure the output directory (optional)
+StatesmanViz.configure do |config|
+  config.output_directory = "/path/to/output"
+end
+
+# Generate the state machine diagram
 StatesmanViz.generate(OrderStateMachine)
 ```
 
-- The output diagram is saved as `OrderStateMachine.png` in the current working directory.
+- The output diagram is saved as `OrderStateMachine.png` in the configured output directory (defaults to `/tmp/StatesmanViz`).
 
 ![OrderStateMachine.png](OrderStateMachine.png)
 
@@ -84,7 +90,7 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the StatesmanViz project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/sannim1/statesmanviz/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the StatesmanViz project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/sannim1/statesmanviz/blob/master/CODE_OF_CONDUCT.md).
 
 ## Credit
 
